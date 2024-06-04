@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name', 120);
             $table->string('email', 50);
             $table->string('password', 70);
-            $table->string('phone_number', 25);
+            $table->string('phone_number', 25)->nullable();
         });
     }
 
