@@ -10,8 +10,8 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 // Routes that do not require authentication
-Route::post('students/register', [StudentController::class, 'register']);
-Route::post('students/login', [StudentController::class, 'login']);
+Route::post('register', [StudentController::class, 'register']);
+Route::post('login', [StudentController::class, 'login']);
 
 // Routes that require authentication
 Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -20,7 +20,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         ->prefix('students')
         ->group(
             function () {
-                Route::post('logout', 'logout');
+                Route::get('logout', 'logout');
                 Route::get('profile', 'profile');
             }
         );
